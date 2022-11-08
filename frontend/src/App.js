@@ -1,10 +1,14 @@
 import './App.css';
 import NavigationBar from './composants/Navigationbar';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <NavigationBar />
-    </div>
+      <Routes>
+        <Route path='element=' />
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;
