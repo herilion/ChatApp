@@ -1,0 +1,12 @@
+.bgLogin{
+    background-image: url(https://cdn0.careeraddict.com/uploads/article/59412/illustration-people-talking.jpg);
+    height: 92vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+.form{
+    width: 80%;
+    max-width: 500px;
+}
