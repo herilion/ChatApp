@@ -1,0 +1,8 @@
+.bgHome{
+    background-image: url(https://img.freepik.com/vecteurs-libre/groupe-personnes-differentes-etant-ensemble_23-2148460040.jpg?w=740&t=st=1667918139~exp=1667918739~hmac=953a186671139977bffbe4ef7aa3495dd211f3f1ac3d9b19c7553cbd0446a64b);
+    height: 92vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
