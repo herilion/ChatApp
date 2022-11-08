@@ -1,0 +1,7 @@
+.logoGroup{
+    display: flex;
+    align-items: center;
+}
+.ImgLogo{
+    width: 100px;
+}
