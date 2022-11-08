@@ -11,7 +11,7 @@ const Home = () => {
                     <h1>Partagez le mot avec vos amis</h1>
                     <p>Communiquez aussi facilement que rapidement</p>
                     <LinkContainer to='/chat'>
-                        <Button variant='success'>Commencer<i className='fas fa-comments home-message-icon'></i></Button>
+                        <Button variant='success'>Commencer<i className='fas fa-comments messageIcon'></i></Button>
 
                     </LinkContainer>
                 </div>

@@ -6,3 +6,7 @@
     background-repeat: no-repeat;
     overflow-x: hidden;
 }
+.messageIcon{
+    margin-left: 10px;
+    display: inline-block;
+}
