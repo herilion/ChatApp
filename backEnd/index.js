@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extends: true }));
 app.use(express.json());
 app.use(cors());
 
-const server = require('http').createServer(app);
+// const server = require('http').createServer(app);
 const PORT = 3001;
 const io = require('socket.io')(server, {
     cors: {
@@ -16,6 +16,6 @@ const io = require('socket.io')(server, {
     }
 })
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log('server est en marche au', PORT);
 })
