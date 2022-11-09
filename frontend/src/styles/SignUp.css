@@ -1,0 +1,33 @@
+.bgSignUp{
+    /* background-image: url(https://cdn0.careeraddict.com/uploads/article/59412/illustration-people-talking.jpg); */
+    height: 92vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+.titleSignup{
+    text-align: center;
+    margin-bottom: 25px;
+}
+.signupProfileContainer{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+.signupProfilPic{
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid #ee7c1f;
+    height: 100px;
+}
+.addPictureIcon{
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    color: #ee7c1f;
+    background-color: aliceblue;
+    z-index: 99;
+    cursor: pointer;
+}
