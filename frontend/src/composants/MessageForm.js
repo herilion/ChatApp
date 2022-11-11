@@ -7,12 +7,12 @@ const MessageForm = () => {
         e.preventDefault();
     }
     return (
-        <div>
+        <>
             <div className='messagesOutput'></div>
             <Form onSubmit={handleSubmit}>
                 <Row>
                     <Col md={11}>
-                        <Form.Group>
+                        <Form.Group className='iptmessage'>
                             <Form.Control type='text' placeholder='your message here'></Form.Control>
                         </Form.Group>
                     </Col>
@@ -25,7 +25,7 @@ const MessageForm = () => {
                 </Row>
             </Form>
 
-        </div>
+        </>
     )
 }
 

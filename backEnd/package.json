@@ -8,7 +8,7 @@
     "dev":"nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Heritier LIONGE",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
