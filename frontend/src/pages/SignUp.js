@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import '../styles/SignUp.css'
 import user from '../assets/user.png'
 
-const handleSignup = (e) => {
-    e.preventDefault();
-}
+
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +15,7 @@ const SignUp = () => {
     const [image, setImage] = useState(null);
     const [uploadingImg, setUploadingImg] = useState(false);
     const [imagePreview, setImagePreview] = useState(null);
-    const changeImg = (e) => {
+    const validationImg = (e) => {
         const file = e.target.files[0];
         if (file.size >= 1048576) {
             return alert('max file size 1mb, fichier trop grand')
@@ -26,6 +24,30 @@ const SignUp = () => {
             setImage(file);
             setImagePreview(URL.createObjectURL(file));
         }
+    }
+    const uploadImg = async () => {
+        const data = new FormData();
+        data.append('file', image);
+        data.append('upload_preset', 'vstdprf5');
+        try {
+            setUploadingImg(true);
+            let res = await fetch('https://api.cloudinary.com/v1_1/dut1lzqht/image/upload', {
+                method: 'post',
+                body: data
+            })
+            const urlData = await res.json();
+            setUploadingImg(false);
+            return urlData.url
+        } catch (err) {
+            setUploadingImg(false);
+            console.log(err);
+        }
+    }
+    const handleSignup = async (e) => {
+        e.preventDefault();
+        if (!image) return alert('Please upload your picture');
+        const url = await uploadImg(image);
+        console.log(url);
     }
     return (
         <Container>
@@ -38,7 +60,7 @@ const SignUp = () => {
                             <label htmlFor='imageUpload' className='imageUploadLabel'>
                                 <i className='fas fa-plus-circle addPictureIcon'></i>
                             </label>
-                            <input type="file" id='imageUpload' hidden accept='image/jpeg, image/png' onChange={changeImg} />
+                            <input type="file" id='imageUpload' hidden accept='image/jpeg, image/png' onChange={validationImg} />
                         </div>
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Votre Nom</Form.Label>
@@ -54,7 +76,7 @@ const SignUp = () => {
                             <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
                         </Form.Group>
                         <Button variant="primary" type="submit">
-                            Créer un compte
+                            {uploadingImg ? "Signing you up ..." : "Signup"}
                         </Button>
                         <div>
                             <p>
