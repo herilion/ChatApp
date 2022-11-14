@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const { isEmail } = require('validator');
-const bcrypt = require('bcrypt');
+import { Schema, model } from 'mongoose';
+import { isEmail } from 'validator';
+import { compare } from 'bcrypt';
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
     name: {
         type: String,
         required: [true, "Can't be blank"]
@@ -31,5 +31,21 @@ const UserSchema = new mongoose.Schema({
         default: 'online'
     }
 }, { minimize: false });
-const User = mongoose.model('User', UserSchema);
-module.exports = User
+UserSchema.methods.toJSON = function () {
+    const user = this;
+    const userObject = user.toObject();
+    delete userObject.password;
+    return userObject;
+}
+
+UserSchema.static.findByCredentials = async function (email, password) {
+    const user = await User.findOne({ email });
+    if (!user) throw new Error('invalid email or password');
+
+    const isMatch = await compare(password, user.password);
+    if (!isMatch) throw new Error('invalid email or password');
+    return user;
+
+}
+const User = model('User', UserSchema);
+export default User

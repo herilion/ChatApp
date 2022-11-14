@@ -1,10 +1,10 @@
-const express = require('express')
+import express from 'express';
 const app = express();
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const cors = require('cors');
+import { connect } from 'mongoose';
+import { config } from 'dotenv';
+import cors from 'cors';
 
-dotenv.config();
+config();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -22,7 +22,7 @@ const PORT = process.env.PORT;
 // })
 console.log(DB_URL)
 //connection à la base des données
-mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         app.listen(PORT, () => {
             console.log('server est en marche au', PORT);
