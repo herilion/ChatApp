@@ -31,6 +31,7 @@ const UserSchema = new Schema({
         default: 'online'
     }
 }, { minimize: false });
+
 UserSchema.methods.toJSON = function () {
     const user = this;
     const userObject = user.toObject();
