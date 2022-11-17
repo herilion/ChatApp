@@ -35,3 +35,4 @@ const appApi = createApi({
     }),
 });
 export const { useSignupUserMutation, useLoginUserMutation, useLogoutMutation } = appApi;
+export default appApi;
