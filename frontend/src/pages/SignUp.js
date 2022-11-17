@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Row, Col, Form, Button, Container } from 'react-bootstrap';
+import { useSignupUserMutation } from '../services/appApi';
 import { Link } from 'react-router-dom';
 import '../styles/SignUp.css'
 import user from '../assets/user.png'
-
 
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+
+    const [signupUser, { isLoading, error }] = useSignupUserMutation();
 
     //image upload
     const [image, setImage] = useState(null);
@@ -48,6 +50,12 @@ const SignUp = () => {
         if (!image) return alert('Please upload your picture');
         const url = await uploadImg(image);
         console.log(url);
+        //signup the user
+        signupUser({ name, email, password, picture: url }).then(({ data }) => {
+            if (data) {
+                console.log(data);
+            }
+        })
     }
     return (
         <Container>

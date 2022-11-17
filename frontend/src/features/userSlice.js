@@ -16,5 +16,8 @@ export const userSlice = createSlice({
         builder.addMatcher(appApi.endpoints.loginUser.matchFulfilled, (state, { payload }) => payload);
         //detroy user session after logout
         builder.addMatcher(appApi.endpoints.logoutUser.matchFulfilled, (state, { }) => null);
-    }
+    },
 });
+
+export const { addNotification, resetNotification } = userSlice.actions;
+export default userSlice.reducer;
