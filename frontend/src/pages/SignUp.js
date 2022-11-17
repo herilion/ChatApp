@@ -64,16 +64,16 @@ const SignUp = () => {
                         </div>
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Votre Nom</Form.Label>
-                            <Form.Control type="text" placeholder="Votre Nom ici" onChange={(e) => setName(e.target.value)} value={name} />
+                            <Form.Control type="text" placeholder="Votre Nom ici" required onChange={(e) => setName(e.target.value)} value={name} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                            <Form.Control type="email" placeholder="Enter email" required onChange={(e) => setEmail(e.target.value)} value={email} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
+                            <Form.Control type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} value={password} />
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             {uploadingImg ? "Signing you up ..." : "Signup"}
