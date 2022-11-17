@@ -2,7 +2,7 @@ import User from '../models/users.js';
 import express from 'express';
 const router = express.Router()
 
-// creating user
+// creating  user
 router.post('/', async (req, res) => {
     try {
         const { name, email, password, picture } = req.body;
