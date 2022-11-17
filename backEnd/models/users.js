@@ -1,8 +1,10 @@
-import { Schema, model } from 'mongoose';
-import { isEmail } from 'validator';
-import { compare } from 'bcrypt';
+import mongoose from "mongoose";
+import pkg from 'validator';
+import bcrypt from 'bcrypt';
 
-const UserSchema = new Schema({
+const { isEmail } = pkg;
+
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "Can't be blank"]
@@ -32,6 +34,22 @@ const UserSchema = new Schema({
     }
 }, { minimize: false });
 
+UserSchema.pre('save', function (next) {
+    const user = this;
+    if (!user.isModified('password')) return next();
+
+    bcrypt.genSalt(10, function (err, salt) {
+        if (err) return next(err);
+
+        bcrypt.hash(user.password, salt, function (err, hash) {
+            if (err) return next(err);
+
+            user.password = hash
+            next()
+        })
+    })
+})
+
 UserSchema.methods.toJSON = function () {
     const user = this;
     const userObject = user.toObject();
@@ -43,10 +61,10 @@ UserSchema.static.findByCredentials = async function (email, password) {
     const user = await User.findOne({ email });
     if (!user) throw new Error('invalid email or password');
 
-    const isMatch = await compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) throw new Error('invalid email or password');
     return user;
 
 }
-const User = model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
 export default User

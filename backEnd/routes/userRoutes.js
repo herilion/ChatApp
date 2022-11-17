@@ -1,27 +1,27 @@
-const router = require('express').Router();
-const User = require('../models/users').default;
+import User from '../models/users.js';
+import express from 'express';
+const router = express.Router()
 
-//creating user
+// creating user
 router.post('/', async (req, res) => {
     try {
         const { name, email, password, picture } = req.body;
         console.log(req.body);
         const user = await User.create({ name, email, password, picture });
         res.status(201).json(user);
-    } catch (err) {
+    } catch (e) {
         let msg;
-        if (err.code == 11000) {
-            msg = 'User already exists';
+        if (e.code == 11000) {
+            msg = "User already exists"
+        } else {
+            msg = e.message;
         }
-        else {
-            msg = err.message
-        }
-        console.log(err);
+        console.log(e);
         res.status(400).json(msg)
     }
-});
+})
 
-//login user
+// login user
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -29,8 +29,9 @@ router.post('/login', async (req, res) => {
         user.status = 'online';
         await user.save();
         res.status(200).json(user);
-    } catch (err) {
-        res.status(400).json(err.message)
-
+    } catch (e) {
+        res.status(400).json(e.message)
     }
 })
+
+export default router

@@ -1,5 +1,6 @@
 import express from 'express';
 const app = express();
+import userRoutes from './routes/userRoutes.js';
 import { connect } from 'mongoose';
 import { config } from 'dotenv';
 import cors from 'cors';
@@ -9,6 +10,7 @@ config();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+app.use('/users', userRoutes)
 
 const DB_URL = process.env.DATABASE_URL;
 
