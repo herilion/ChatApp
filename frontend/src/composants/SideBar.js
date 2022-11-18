@@ -24,7 +24,7 @@ const SideBar = () => {
             <h2>Users</h2>
             <ListGroup>
                 {members.map((member) => (
-                    <ListGroup.Item key={member.id}>
+                    <ListGroup.Item key={member.id} id='member'>
                         {member.name}
                     </ListGroup.Item>))
                 }
