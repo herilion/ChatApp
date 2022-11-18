@@ -30,13 +30,21 @@ app.get('/rooms', (req, res) => {
     res.json(rooms)
 })
 
+//get last message from room
+const getLastMessagesFromRoom = async (room) => {
+    let roomMessages = await Message.aggregate([
+        { $match: { to: room } },
+        { $group: { _id: '$date', messagesByDate: { $push: '$$ROOT' } } }
+    ])
+    return roomMessages;
+}
+
 // socket connexion
 io.on('connection', (socket) => {
     console.log('un clien vient de se connecter');
-
-    // socket.on('join-room', async (room) => {
-    //     socket.join(room)
-    // })
+    socket.on('join-room', async (room) => {
+        socket.join(room)
+    })
 })
 
 console.log(DB_URL)
