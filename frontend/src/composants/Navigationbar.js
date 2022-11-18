@@ -21,7 +21,7 @@ const Navigationbar = () => {
                 <LinkContainer to='/home'>
                     <Navbar.Brand>
                         <div className='logoGroup'>
-                            <img src={solola} alt="logo solola app" className='ImgLogo' />
+                            <img src={solola} alt="logo solola app" className='imgLogo' />
                             <h2>Solola Chat</h2>
                         </div>
                     </Navbar.Brand>
@@ -45,9 +45,6 @@ const Navigationbar = () => {
                                 </>
                             } id="basic-nav-dropdown">
                                 <NavDropdown.Item onClick={handleLogout}>Se deconnecter</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
-                                    Changer de compte
-                                </NavDropdown.Item>
                             </NavDropdown>
                         )}
                     </Nav>
