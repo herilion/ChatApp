@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import '../styles/MessageForm.css'
 import { useSelector } from 'react-redux';
 
 const MessageForm = () => {
+    const [message, setMessage] = useState("");
+    //function to format date
+    const getFormatterDate = () => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = (1 + date.getMonth()).toString();
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
     }
