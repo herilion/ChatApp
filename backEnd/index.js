@@ -80,7 +80,7 @@ io.on('connection', (socket) => {
         roomMessages = sortRoomMessagesByDate(roomMessages);
         //sending message to room
         io.to(room).emit('room-messages', roomMessages);
-
+        //add notification
         socket.broadcast.emit('notifications', room)
     })
 })
