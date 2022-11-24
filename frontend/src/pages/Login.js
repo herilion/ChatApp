@@ -23,9 +23,9 @@ const Login = () => {
             }
         });
     }
-
     return (
         <Container>
+
             <Row>
                 <Col md={5} className='bgLogin'></Col>
                 <Col md={5} className='d-flex align-items-center justify-content-center flex-direction-column'>

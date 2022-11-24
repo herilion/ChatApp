@@ -18,7 +18,7 @@ const SideBar = () => {
     }, []);
 
     socket.off('new-user').on('new-user', (payload) => {
-        console.log(payload);
+        // console.log(payload);
         setMembers(payload);
     })
     //get all room in system
@@ -34,11 +34,11 @@ const SideBar = () => {
     return (
         <>
             <h2>Available rooms in  stystem</h2>
-            <ListGroup>
+            {/* <ListGroup>
                 {rooms.map((room, idx) => (
                     <ListGroup.Item key={idx}>{room}</ListGroup.Item>
                 ))}
-            </ListGroup>
+            </ListGroup> */}
             <h2>Users in system</h2>
             <ListGroup>
                 {members.map((member) => (
