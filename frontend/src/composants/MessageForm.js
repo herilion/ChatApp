@@ -8,7 +8,9 @@ const MessageForm = () => {
     const [message, setMessage] = useState("");
     const user = useSelector((state) => state.user)
     const { socket, currentRoom, setMessages, messages, privateMemberMsg } = useContext(AppContext)
+    const mes = ["Lionge", "gloire", "rolly", "jethron"]
     //function to format date
+    console.log(messages)
     const getFormatterDate = () => {
         const date = new Date();
         const year = date.getFullYear();
@@ -22,25 +24,43 @@ const MessageForm = () => {
 
     const todayDate = getFormatterDate();
 
-    socket.off("room-messages").on('room-messages', (roomMessages) => {
+    // socket.off("room-messages").on('room-messages', (roomMessages) => {
+    //     console.log("room message", roomMessages);
+    //     setMessages(roomMessages);
+    // })
+    socket.on('room-messages', (roomMessages) => {
         console.log("room message", roomMessages);
         setMessages(roomMessages);
     })
 
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!message) return;
         const today = new Date();
         const minutes = today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes();
         const time = today.getHours() + ":" + minutes;
         const roomId = currentRoom;
-        socket.emit("message-room", roomId, message, user, time, todayDate);
-        setMessage("");
+        socket.emit('message-room', roomId, message, user, time, todayDate);
+        setMessage('');
     }
+    // socket.on('newMessage', (data) => {
+    //     console.log(data)
+    // })
     return (
         <>
             <div className='messagesOutput'>
                 {!user && <div className='alert alert-danger'>Please login</div>}
+                {user && messages.map(({ _id: date, messagesByDate }, idx) => {
+                    <div key={idx}>
+                        <p className='alert alert-info text-center message-date-indicator'>{date}</p>
+                        {messagesByDate?.map(({ content, time, from: sender }, msgIdx) => {
+                            <div className='message' key={msgIdx}>
+                                {content}
+                            </div>
+                        })}
+                    </div>
+                })}
+                {/* {mes.map((item, index) => (<span>{item}</span>))} */}
             </div>
             <Form onSubmit={handleSubmit}>
                 <Row>

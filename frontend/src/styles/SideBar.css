@@ -1,3 +1,7 @@
 #member{
     cursor: pointer;
 }
+#memberlist{
+    height: auto;
+    border: 1px solid rebeccapurple;
+}

@@ -33,14 +33,14 @@ const SideBar = () => {
     }
     return (
         <>
-            <h2>Available rooms in  stystem</h2>
-            {/* <ListGroup>
+            <h2>Available rooms</h2>
+            <ListGroup>
                 {rooms.map((room, idx) => (
                     <ListGroup.Item key={idx}>{room}</ListGroup.Item>
                 ))}
-            </ListGroup> */}
-            <h2>Users in system</h2>
-            <ListGroup>
+            </ListGroup>
+            <h2>Members</h2>
+            <ListGroup id='memberlist'>
                 {members.map((member) => (
                     <ListGroup.Item key={member.id} id='member'>
                         {member.name}

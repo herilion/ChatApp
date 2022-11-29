@@ -74,12 +74,15 @@ io.on('connection', (socket) => {
     })
 
     socket.on('message-room', async (room, content, sender, time, date) => {
-        // console.log('new message', content);
+        console.log('new message', content);
         const newMessage = await Message.create({ content, from: sender, time, date, to: room });
+        // console.log(newMessage);
+        // socket.emit('newMessage', newMessages)
         let roomMessages = await getLastMessagesFromRoom(room);
         roomMessages = sortRoomMessagesByDate(roomMessages);
         //sending message to room
-        io.to(room).emit('room-messages', roomMessages);
+        socket.to(room).emit('room-messages', roomMessages);
+        // io.to(room).emit('room-messages', roomMessages);
         //add notification
         socket.broadcast.emit('notifications', room)
     })
