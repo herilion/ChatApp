@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Robot from "../assets/robot.gif";
+import chat from "../assets/robo.png";
 export default function Welcome() {
   const [userName, setUserName] = useState("");
   useEffect(async () => {
@@ -12,7 +12,7 @@ export default function Welcome() {
   }, []);
   return (
     <Container>
-      <img src={Robot} alt="" />
+      <img src={chat} alt="" />
       <h1>
         Welcome, <span>{userName}!</span>
       </h1>
