@@ -10,7 +10,7 @@ import '../styles/Register.css'
 export default function Register() {
   const navigate = useNavigate();
   const toastOptions = {
-    position: "bottom-right",
+    position: "top-right",
     autoClose: 6000,
     pauseOnHover: true,
     draggable: true,
@@ -34,7 +34,7 @@ export default function Register() {
   };
 
   const handleValidation = () => {
-    const { password, confirmPassword, username, email } = values;
+    const { password, username, email } = values;
     if (username.length < 3) {
       toast.error(
         "Username should be greater than 3 characters.",
@@ -48,8 +48,15 @@ export default function Register() {
       );
       return false;
     } else if (email === "") {
-      toast.error("Email is required.", toastOptions);
+      toast.error("Email is required.",
+        toastOptions);
       return false;
+    }
+    else {
+      toast.success(
+        "Username and password verified",
+        toastOptions
+      );
     }
 
     return true;
