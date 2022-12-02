@@ -31,16 +31,16 @@ export default function Chat() {
     }
   }, [currentUser]);
 
-  useEffect(async () => {
-    if (currentUser) {
-      if (currentUser.isAvatarImageSet) {
-        const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
-        setContacts(data.data);
-      } else {
-        navigate("/setAvatar");
-      }
-    }
-  }, [currentUser]);
+  // useEffect(async () => {
+  //   if (currentUser) {
+  //     if (currentUser.isAvatarImageSet) {
+  //       const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
+  //       setContacts(data.data);
+  //     } else {
+  //       navigate("/setAvatar");
+  //     }
+  //   }
+  // }, [currentUser]);
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
   };
