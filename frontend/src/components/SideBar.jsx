@@ -18,22 +18,24 @@ export default function SideBar({ contacts, changeChat }) {
   return (
     <>
       <div className="Container">
-        <div className="brand">
+        <div className="logo">
           <img src={Logo} alt="logo" />
           <h3>SOLOLA Chat</h3>
         </div>
         <div className="current-user">
           <div className="username">
-            <h2>{currentUserName}</h2>
+            <h3>{currentUserName}</h3>
           </div>
+        </div>
+        <div>
+          <h2>contacts</h2>
         </div>
         <div className="contacts">
           {contacts.map((contact, index) => {
             return (
               <div
                 key={contact._id}
-                className={`contact ${index === currentSelected ? "selected" : ""
-                  }`}
+                className='contact'
                 onClick={() => changeCurrentChat(index, contact)}
               >
                 <div className="username">
