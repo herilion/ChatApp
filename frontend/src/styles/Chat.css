@@ -6,15 +6,15 @@
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background:url(../assets/com1.webp) 
 }
   
  .biggContainer .container {
     height: 85vh;
     width: 85vw;
-    background-color: #3ca2abfd;
+    background-color: #435b5efd;
     display: grid;
     grid-template-columns: 25% 75%;
+    border: 1px solid red;
     
   }
 @media screen and (min-width: 720px) and (max-width: 1080px) {
