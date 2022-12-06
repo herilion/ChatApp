@@ -12,7 +12,7 @@
  .biggContainer .container {
     height: 85vh;
     width: 85vw;
-    background-color: #3ca2ab4f;
+    background-color: #3ca2abfd;
     display: grid;
     grid-template-columns: 25% 75%;
     

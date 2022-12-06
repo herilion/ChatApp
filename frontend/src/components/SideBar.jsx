@@ -27,7 +27,7 @@ export default function SideBar({ contacts, changeChat }) {
             <h3>{currentUserName}</h3>
           </div>
         </div>
-        <div>
+        <div className='title'>
           <h2>contacts</h2>
         </div>
         <div className="contacts">
