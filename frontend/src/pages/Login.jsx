@@ -64,8 +64,13 @@ export default function Login() {
   return (
     <>
       <div className="formContainer">
+        <div className="welcomeText">
+          <h1>Share the word with your friends</h1>
+          <p>Communicate easily and quickly</p>
+          <p>Don't have an account? Don't worry, <Link to="/register">Create One.</Link></p>
+        </div>
         <form action="" onSubmit={(event) => handleSubmit(event)}>
-          <div className="brand">
+          <div className="title">
             <img src={Logo} alt="logo" />
             <h2>Solola Chat</h2>
           </div>
@@ -83,9 +88,6 @@ export default function Login() {
             onChange={(e) => handleChange(e)}
           />
           <button type="submit">Log In</button>
-          <span>
-            Don't have an account ? <Link to="/register">Create One.</Link>
-          </span>
         </form>
       </div>
       <ToastContainer />
