@@ -1,16 +1,8 @@
-.formContainer{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
-    background: url('../assets/chat1.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
+
+ .welcomeText{
+  padding: 2em;
 }
-  
+   
 .formContainer .brand {
     display: flex;
     align-items: center;
@@ -33,14 +25,15 @@
     gap: 2rem;
     background-color: #3ca2ab79;
     padding: 3rem;
-    width: 65vh;
-    height: 95vh;
+    width: 60vh;
+    height: 90vh;
     border: #4e0eff solid 2px;
+    align-items: center;
   }
   input {
     background-color: transparent;
     padding: 1rem;
-    margin: 1px;
+    /* margin: 1px; */
     border: 0.1rem solid #533bd8fd;
     border-radius: 0.4rem;
     color: white;
@@ -52,7 +45,7 @@
       outline: none;
     }
  
-  button {
+  .btnRegister {
     background-color: #776c96;
     color: white;
     padding: 1rem 2rem;
@@ -62,6 +55,8 @@
     border-radius: 0.4rem;
     font-size: 1rem;
     text-transform: uppercase;
+    position: fixed;
+    margin-top: 30em;
     }
     button:hover {
       background-color: #4e0eff;

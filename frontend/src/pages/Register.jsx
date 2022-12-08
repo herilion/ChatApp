@@ -88,6 +88,11 @@ export default function Register() {
   return (
     <>
       <div className="formContainer">
+        <div className="welcomeText">
+          <h1>Share the word with your friends</h1>
+          <p>Communicate easily and quickly</p>
+          <p>Already have an account? <Link to="/login">Sign in</Link></p>
+        </div>
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
@@ -111,10 +116,7 @@ export default function Register() {
             name="password"
             onChange={(e) => handleChange(e)}
           />
-          <button type="submit">Create User</button>
-          <span>
-            Already have an account ? <Link to="/login">Login.</Link>
-          </span>
+          <button className="btnRegister" type="submit">Create User</button>
         </form>
       </div>
       <ToastContainer />
