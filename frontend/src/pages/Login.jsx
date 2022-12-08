@@ -68,7 +68,6 @@ export default function Login() {
           <h1>Share the word with your friends</h1>
           <p>Communicate easily and quickly</p>
           <p>Don't have an account? Don't worry, <Link to="/register">Create One.</Link></p>
-
         </div>
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="title">
