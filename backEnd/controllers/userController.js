@@ -20,9 +20,11 @@ module.exports.login = async (req, res, next) => {
 module.exports.register = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
+    console.log(req.body);
+
     const usernameCheck = await User.findOne({ username });
     if (usernameCheck)
-      return res.json({ msg: "Username already used", status: false });
+      return res.status(400).json({ msg: "Username already used", status: false });
     const emailCheck = await User.findOne({ email });
     if (emailCheck)
       return res.json({ msg: "Email already used", status: false });
@@ -33,7 +35,7 @@ module.exports.register = async (req, res, next) => {
       password: hashedPassword,
     });
     delete user.password;
-    return res.json({ status: true, user });
+    return res.status(200).json({ status: true, user });
   } catch (ex) {
     next(ex);
   }

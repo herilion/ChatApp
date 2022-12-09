@@ -1,20 +1,15 @@
 const express = require("express");
-// import express from 'express';
 const cors = require("cors");
-// import cors from 'cors'
 const mongoose = require("mongoose");
-// import mongoose from 'mongoose';
 const authRoutes = require("./routes/auth");
-// import { authRoutes } from './routes/auth.js'
 const messageRoutes = require("./routes/messages");
-// import messageRoutes from './routes/messages.js'
 const app = express();
 const socket = require("socket.io");
-// import socket from 'socket.io';
 require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 
 mongoose
   .connect(process.env.MONGO_URL, {
