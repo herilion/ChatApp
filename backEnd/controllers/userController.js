@@ -21,7 +21,6 @@ module.exports.register = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
     console.log(req.body);
-
     const usernameCheck = await User.findOne({ username });
     if (usernameCheck)
       return res.status(400).json({ msg: "Username already used", status: false });
