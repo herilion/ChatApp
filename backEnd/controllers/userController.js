@@ -9,9 +9,9 @@ module.exports.login = async (req, res, next) => {
       return res.status(404).json({ msg: "Incorrect Username or Password", status: false });
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid)
-      return res.json({ msg: "Incorrect Username or Password", status: false });
+      return res.status(404).json({ msg: "Incorrect Username or Password", status: false });
     delete user.password;
-    return res.status(404).json({ status: true, user });
+    return res.status(200).json({ status: true, user });
   } catch (ex) {
     next(ex);
   }
@@ -55,7 +55,7 @@ module.exports.getAllUsers = async (req, res, next) => {
 
 module.exports.logOut = (req, res, next) => {
   try {
-    if (!req.params.id) return res.json({ msg: "User id is required " });
+    if (!req.params.id) return res.status(403).json({ msg: "User id is required " });
     onlineUsers.delete(req.params.id);
     return res.status(200).send();
   } catch (ex) {
