@@ -2,15 +2,32 @@
    height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   gap: 1rem;
   align-items: center;
+  border: 2px solid red;
+  background: rgba(234,234,234,255);
+}
+.userInfo{
+   border: 2px solid blue;
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   align-items: center;
+   justify-content: center;
+   border-radius: 20px;
+   height: 85vh;
+   width: 15%;
+   background-color: rgba(25,102,255,255);
+}
+.userInfo img{
+   width: 100px;
+   border-radius: 50%;
 }
   
  .biggContainer .container {
     height: 85vh;
-    width: 85vw;
+    width: 85%;
     background-color: #435b5efd;
     display: grid;
     grid-template-columns: 25% 75%;

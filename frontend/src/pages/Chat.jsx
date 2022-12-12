@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
+import user from '../assets/user.png'
 import { allUsersRoute, host } from "../utils/APIRoutes";
 import ChatContainer from "../components/ChatContainer";
 import Contacts from "../components/SideBar";
@@ -13,6 +14,7 @@ export default function Chat() {
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentUserName, setCurrentUserName] = useState(undefined);
   useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/login");
@@ -23,6 +25,12 @@ export default function Chat() {
         )
       );
     }
+  }, []);
+  useEffect(async () => {
+    const data = await JSON.parse(
+      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+    );
+    setCurrentUserName(data.username);
   }, []);
   useEffect(() => {
     if (currentUser) {
@@ -43,6 +51,10 @@ export default function Chat() {
   return (
     <>
       <div className="biggContainer">
+        <div className="userInfo">
+          <img src={user} alt="user logo" />
+          <span>{currentUserName}</span>
+        </div>
         <div className="container">
           <Contacts contacts={contacts} changeChat={handleChatChange} />
           {currentChat === undefined ? (
