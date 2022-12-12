@@ -22,11 +22,6 @@ export default function SideBar({ contacts, changeChat }) {
           <img src={Logo} alt="logo" />
           <h3>SOLOLA Chat</h3>
         </div>
-        <div className="current-user">
-          <div className="username">
-            <h3>{currentUserName}</h3>
-          </div>
-        </div>
         <div className='title'>
           <h2>contacts</h2>
         </div>

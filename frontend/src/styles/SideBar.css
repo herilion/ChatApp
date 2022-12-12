@@ -1,6 +1,5 @@
 .Container{
   display: grid;
-  grid-template-rows: 10% 10% 10% 70%;
   overflow: hidden;
   background-color: #080420;
 }
