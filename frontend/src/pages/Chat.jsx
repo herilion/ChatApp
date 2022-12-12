@@ -6,6 +6,7 @@ import user from '../assets/user.png'
 import { allUsersRoute, host } from "../utils/APIRoutes";
 import ChatContainer from "../components/ChatContainer";
 import Contacts from "../components/SideBar";
+import Logout from '../components/Logout';
 import '../styles/Chat.css'
 
 export default function Chat() {
@@ -54,6 +55,7 @@ export default function Chat() {
         <div className="userInfo">
           <img src={user} alt="user logo" />
           <span>{currentUserName}</span>
+          <Logout />
         </div>
         <div className="container">
           <Contacts contacts={contacts} changeChat={handleChatChange} />
