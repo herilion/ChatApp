@@ -21,7 +21,7 @@
    background-color: rgba(25,102,255,255);
 }
 .userInfo img{
-   width: 100px;
+   width: 60%;
    border-radius: 50%;
 }
 .btnLogout{
@@ -30,9 +30,16 @@
   align-items: center;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: #9a86f3;
+  background-color: rgba(25,102,255,255);
+  width: 40%;
   border: none;
   cursor: pointer;
+  margin-top: 60px;
+}
+.btnLogout .btnIcon{
+   font-size: 30px;
+   color: red;
+   text-align: center;
 }
   
  .biggContainer .container {
@@ -42,6 +49,7 @@
     display: grid;
     grid-template-columns: 25% 75%;
     border: 1px solid red;
+    border-radius: 20px;
     
   }
 @media screen and (min-width: 720px) and (max-width: 1080px) {
