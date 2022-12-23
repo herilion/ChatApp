@@ -17,7 +17,7 @@ export default function Logout() {
   };
   return (
     <button className="btnLogout" onClick={handleClick} >
-      <BiPowerOff />
+      <span className="btnIcon"><BiPowerOff /></span>
     </button>
   );
 }

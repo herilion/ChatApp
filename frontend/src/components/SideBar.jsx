@@ -18,10 +18,6 @@ export default function SideBar({ contacts, changeChat }) {
   return (
     <>
       <div className="Container">
-        <div className="logo">
-          <img src={Logo} alt="logo" />
-          <h3>SOLOLA Chat</h3>
-        </div>
         <div className='title'>
           <h2>contacts</h2>
         </div>

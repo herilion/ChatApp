@@ -2,6 +2,7 @@
   display: grid;
   overflow: hidden;
   background-color: #080420;
+  border-radius: 20px;
 }
 .Container .logo {
   display: flex;
