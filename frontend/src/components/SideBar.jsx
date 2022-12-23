@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../assets/logo.jpeg";
 import '../styles/SideBar.css';
 
 export default function SideBar({ contacts, changeChat }) {
