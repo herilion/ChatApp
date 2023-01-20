@@ -16,5 +16,20 @@ describe('get all users', () => {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
             });
-    })
+    });
 });
+describe('user connect', () => {
+    it('should connect', () => {
+        chai.request(app)
+            .post('/api/auth/login')
+            .send({
+                username: "Chako",
+                password: "123456789",
+                email: "chako@yahoo.com"
+            })
+            .end((err, res) => {
+                expect(err).to.be.null;
+                expect(res).to.have.status(200);
+            });
+    })
+})
