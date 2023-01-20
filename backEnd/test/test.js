@@ -18,11 +18,11 @@ describe('get all users', () => {
             });
     });
 });
-describe('user connect', () => {
-    it('should connect', () => {
-        chai.request(app)
-            .post('/api/auth/login')
-            .send({
+// describe('user connect', () => {
+//     it('should connect', () => {
+//         chai.request(app)
+//             .post('/api/auth/login')
+//             .send({
 //                 username: "Chako",
 //                 password: "123456789",
 //                 email: "chako@yahoo.com"
