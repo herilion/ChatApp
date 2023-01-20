@@ -50,4 +50,4 @@ io.on("connection", (socket) => {
     }
   });
 });
-export default app;
+module.exports = app;
