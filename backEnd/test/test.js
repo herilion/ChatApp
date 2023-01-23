@@ -9,27 +9,28 @@ describe('get all users', () => {
         chai.request(app)
             .get('/api/auth/allusers/6389d490268c57d0918d9c88')
             .send({
-                email: "heritier@gmail.com",
+                email: "",
                 username: "Heritier LIONGE",
             })
             .end((err, res) => {
+                expect(res.body).to.be.an('array');
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
             });
     });
 });
-// describe('user connect', () => {
-//     it('should connect', () => {
-//         chai.request(app)
-//             .post('/api/auth/login')
-//             .send({
-//                 username: "Chako",
-//                 password: "123456789",
-//                 email: "chako@yahoo.com"
-//             })
-//             .end((err, res) => {
-//                 expect(err).to.be.null;
-//                 expect(res).to.have.status(200);
-//             });
-//     })
-// })
+describe('user connect', () => {
+    it('should connect', () => {
+        chai.request(app)
+            .post('/api/auth/login')
+            .send({
+                username: "chako",
+                email: "chako@yahoo.com",
+                password: "123456789"
+            })
+            .end((err, res) => {
+                expect(err).to.be.null;
+                expect(res).to.have.status(200);
+            });
+    })
+})

@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 module.exports.login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
+
     const user = await User.findOne({ username });
     if (!user)
       return res.status(404).json({ msg: "Incorrect Username or Password", status: false });
@@ -42,6 +43,7 @@ module.exports.register = async (req, res, next) => {
 
 module.exports.getAllUsers = async (req, res, next) => {
   try {
+    console.log(req.body);
     const users = await User.find({ _id: { $ne: req.params.id } }).select([
       "email",
       "username",
